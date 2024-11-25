@@ -18,57 +18,63 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/adultosquenaobebem"
+        android:id="@+id/txt1"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="291dp">
+        tools:layout_editor_absoluteY="258dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adultosquenaobebem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Adultos que não bebem" />
+            android:hint="Adultos que não bebem"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/duração"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/crianças"
-        tools:layout_editor_absoluteX="1dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Duração" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/crianças"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/adultosquenaobebem"
-        tools:layout_editor_absoluteX="1dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Crianças" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/adultosquebebem"
+        android:id="@+id/txt2"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="213dp">
+        tools:layout_editor_absoluteY="502dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/duração"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Adultos que bebem" />
+            android:hint="Duração"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt3"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="320dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/crianças"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Crianças"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt4"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="197dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adultosquebebem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adultos que bebem"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
