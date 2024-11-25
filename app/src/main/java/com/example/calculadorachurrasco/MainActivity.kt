@@ -1,5 +1,6 @@
 package com.example.calculadorachurrasco
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -53,6 +54,13 @@ class MainActivity : AppCompatActivity() {
                 val refrigerante = ( naobebem * 0.4) + (crianca * 0.2)
 
 
+                val intent = Intent (this, ResultActivity::class.java)
+                intent.putExtras("123", carne_total, cerveja_total, refrigerante, duracao)
+                startActivity(intent)
+
+
+
+
                 }
 
 
@@ -65,4 +73,3 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-}
