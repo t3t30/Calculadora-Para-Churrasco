@@ -40,8 +40,20 @@ class MainActivity : AppCompatActivity() {
                     adultosquebebem,
                     "Preencha todos os campos",
                     Snackbar.LENGTH_LONG
-                ) .show()
+                ).show()
+            } else {
+                val bebem = adultos1str.toFloat()
+                val naobebem = adultos2str.toFloat()
+                val crianca = criancastr.toFloat()
+                val duracao = duracaostr. toFloat()
 
+                // logica do calculo do resultado:
+                val carne_total = (bebem + naobebem)*0.3* duracao + crianca*0.15*duracao
+                val cerveja_total = bebem * duracao * 1
+                val refrigerante = ( naobebem * 0.4) + (crianca * 0.2)
+
+
+                }
 
 
         }
