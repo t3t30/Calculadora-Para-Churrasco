@@ -21,8 +21,8 @@
         android:id="@+id/txt1"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="258dp">
+        app:layout_constraintBottom_toTopOf="@+id/txt3"
+        tools:layout_editor_absoluteX="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/adultosquenaobebem"
@@ -36,8 +36,8 @@
         android:id="@+id/txt2"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="502dp">
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        tools:layout_editor_absoluteX="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/duração"
@@ -51,8 +51,8 @@
         android:id="@+id/txt3"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="320dp">
+        app:layout_constraintBottom_toTopOf="@+id/txt2"
+        tools:layout_editor_absoluteX="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/crianças"
@@ -66,8 +66,8 @@
         android:id="@+id/txt4"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="197dp">
+        app:layout_constraintBottom_toTopOf="@+id/txt1"
+        tools:layout_editor_absoluteX="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/adultosquebebem"
