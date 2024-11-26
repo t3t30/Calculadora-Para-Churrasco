@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             val adultos2str: String = adultosquenaobebem.text.toString()
             val criancastr: String = criancas1.text.toString()
             val duracaostr: String = duracao1.text.toString()
-            if (adultos1str == "" || adultos2str == "" || criancastr =="" || duracaostr == "") {
+            if (adultos1str.isEmpty() || adultos2str.isEmpty() || criancastr.isEmpty() || duracaostr.isEmpty()) {
                 Snackbar.make(
                     adultosquebebem,
                     "Preencha todos os campos",
@@ -53,10 +53,27 @@ class MainActivity : AppCompatActivity() {
                 val cerveja_total = bebem * duracao * 1
                 val refrigerante = ( naobebem * 0.4) + (crianca * 0.2)
 
-
-                val intent = Intent (this, ResultActivity::class.java)
-                intent.putExtras("123", carne_total, cerveja_total, refrigerante, duracao)
+                val intent = Intent  (this, ResultActivity::class.java)
+                intent.putExtra("Key_carne", carne_total)
+                intent.putExtra("Key_cerveja", cerveja_total)
+                intent.putExtra("Key_refrigerante", refrigerante)
                 startActivity(intent)
+
+
+                //val intentcarne = Intent (this, ResultActivity::class.java)
+                //intentcarne.putExtra("123", carne_total)
+
+                //startActivity(intentcarne)
+
+                //val intentcerveja = Intent (this, ResultActivity::class.java)
+                //intentcerveja.putExtra("1234", cerveja_total)
+
+                //startActivity(intentcerveja)
+
+                //val intentrefrigerante = Intent (this, ResultActivity::class.java)
+                //intentrefrigerante.putExtra("12345", refrigerante)
+
+               // startActivity(intentrefrigerante)
 
 
 
