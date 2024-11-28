@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Calculadora churrasco</string>
+    <string name="app_name">ChurrasCalculator</string>
+    <string name="sub_title">Seu churrasco precisa dessas quantidades:</string>
+    <string name="Qtd_carne">Carne (kg):</string>
+    <string name="Qtd_Cerveja">Cerveja (Latas):</string>
+    <string name="Qtd_Refrigerante">Refrigerante (Litros):</string>
 </resources>
