@@ -1,92 +1,74 @@
 package com.example.calculadorachurrasco
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.calculadorachurrasco.R
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        val edtAdults = findViewById<TextInputEditText>(R.id.edt_adultos)
+        edtAdults.text?.clear()
+        val edtChildren = findViewById<TextInputEditText>(R.id.edt_criancas)
+        val edtAdultsDont = findViewById<TextInputEditText>(R.id.edt_adultosdont)
+        val edtHours = findViewById<TextInputEditText>(R.id.edt_horas)
+        val btnCalculate = findViewById<Button>(R.id.btn_calc)
 
-        // colocar variantes:
+        btnCalculate.setOnClickListener {
+            val adultsStr: String = edtAdults.text.toString()
+            val childrenStr: String = edtChildren.text.toString()
+            val hoursStr: String = edtHours.text.toString()
+            val adultsnoStr: String = edtAdultsDont.text.toString()
 
-        val adultosquebebem = findViewById<TextInputEditText>(R.id.adultosquebebem)
-        val adultosquenaobebem = findViewById<TextInputEditText>(R.id.adultosquenaobebem)
-        val criancas1 = findViewById<TextInputEditText>(R.id.crianças)
-        val duracao1 = findViewById<TextInputEditText>(R.id.duração)
-
-
-        // conectar botao
-        // calculo ativado por botão:
-
-        val btncalcular = findViewById<Button>(R.id.button) //conectado
-        //calculo:
-        btncalcular.setOnClickListener {
-            val adultos1str: String = adultosquebebem.text.toString()
-            val adultos2str: String = adultosquenaobebem.text.toString()
-            val criancastr: String = criancas1.text.toString()
-            val duracaostr: String = duracao1.text.toString()
-            if (adultos1str.isEmpty() || adultos2str.isEmpty() || criancastr.isEmpty() || duracaostr.isEmpty()) {
+            if (adultsStr == "" || childrenStr == "" || hoursStr == "") {
                 Snackbar.make(
-                    adultosquebebem,
-                    "Preencha todos os campos",
+                    edtAdults,
+                    "Preencha todos os campos!",
                     Snackbar.LENGTH_LONG
-                ).show()
+                )
+                    .show()
             } else {
-                val bebem = adultos1str.toFloat()
-                val naobebem = adultos2str.toFloat()
-                val crianca = criancastr.toFloat()
-                val duracao = duracaostr. toFloat()
 
-                // logica do calculo do resultado:
-                val carne_total = (bebem + naobebem)*0.3* duracao + crianca*0.15*duracao
-                val cerveja_total = bebem * duracao * 1
-                val refrigerante = ( naobebem * 0.4) + (crianca * 0.2)
+                val adults = adultsStr.toFloat()
+                val adultsdontdrink = adultsnoStr.toFloat()
+                val children = childrenStr.toFloat()
+                val hours = hoursStr.toFloat()
+                var adultsconts : Float?= 0f
+                var childrenconts : Float?= 0f
+                val quatro = 4f/10f
+                val seis = 6f/10f
+                val duzentos = 2f/10f
+                val trezentos = 3f/10f
+                if(hours<=4){adultsconts = quatro}
+                else if (hours>4){adultsconts = seis}
+                if (hours<4){childrenconts= duzentos}
+                else if (hours>4){childrenconts = trezentos}
 
-                val intent = Intent  (this, ResultActivity::class.java)
-                intent.putExtra("Key_carne", carne_total)
-                intent.putExtra("Key_cerveja", cerveja_total)
-                intent.putExtra("Key_refrigerante", refrigerante)
+
+                val childrenMeat = children * childrenconts!!
+                val adultsMeat = adults * adultsconts!!
+                val adultsDontMeat = adultsdontdrink * 3/10 * hours
+                val meat = childrenMeat + adultsMeat + adultsDontMeat
+                val beerAdults = adults * 1 * hours
+                val refrigeratorChildren = children * 2/10 * hours
+                val refrigeratorAdult = adultsdontdrink * 4/10 * hours
+                val refrigerator = refrigeratorAdult + refrigeratorChildren
+
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_BEER, beerAdults)
+                intent.putExtra(KEY_RESULT_MEAT, meat)
+                intent.putExtra(KEY_RESULT_DRINKS, refrigerator)
                 startActivity(intent)
 
 
-                //val intentcarne = Intent (this, ResultActivity::class.java)
-                //intentcarne.putExtra("123", carne_total)
-
-                //startActivity(intentcarne)
-
-                //val intentcerveja = Intent (this, ResultActivity::class.java)
-                //intentcerveja.putExtra("1234", cerveja_total)
-
-                //startActivity(intentcerveja)
-
-                //val intentrefrigerante = Intent (this, ResultActivity::class.java)
-                //intentrefrigerante.putExtra("12345", refrigerante)
-
-               // startActivity(intentrefrigerante)
-
-
-
-
-                }
-
-
-        }
-
-
-
-        // passar para prox tela e levar resultados:
-
-
+            }
         }
     }
+}
+
